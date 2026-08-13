@@ -1,0 +1,32 @@
+# 원본 저장소의 최신 코드를 내 저장소로 가져온다.
+# Actions 탭에서 직접 눌러야만 돈다. 저절로 돌지 않으므로
+# 쓰던 배포가 어느 날 갑자기 바뀌는 일은 없다.
+
+name: 최신 버전 받기
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    # 원본 저장소 자신에서는 돌 필요가 없다
+    if: github.repository != 'Lemonade073/Risutalk_shared'
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 내 저장소 받아오기
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 원본에서 최신 코드 가져오기
+        run: |
+          git remote add upstream https://github.com/Lemonade073/Risutalk_shared.git
+          git fetch upstream main
+          git reset --hard upstream/main
+
+      - name: 내 저장소에 반영하기
+        run: git push --force origin HEAD:main
