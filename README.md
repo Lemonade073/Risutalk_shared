@@ -17,10 +17,11 @@
 
 ### 빠르게 (버튼 한 번)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/USERNAME/REPO)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3a%2f%2fgithub.com%2fLemonade073%2fRisutalk_shared&env=PROXY_KEY&envDescription=%ec%a7%81%ec%a0%91+%eb%a7%8c%eb%93%9c%eb%8a%94+24%ec%9e%90+%ec%9d%b4%ec%83%81+%eb%ac%b4%ec%9e%91%ec%9c%84+%eb%ac%b8%ec%9e%90%ec%97%b4%ec%9e%85%eb%8b%88%eb%8b%a4.+API+%ed%9a%8c%ec%82%ac%ec%97%90%ec%84%9c+%eb%b0%9b%eb%8a%94+%ed%82%a4%ea%b0%80+%ec%95%84%eb%8b%99%eb%8b%88%eb%8b%a4.&envLink=https%3a%2f%2fgithub.com%2fLemonade073%2fRisutalk_shared%2fblob%2fmain%2f.env.example&project-name=risutalk&repository-name=risutalk)
 
 버튼을 누르면 저장소 복사와 배포가 한 번에 됩니다.
-배포가 끝나면 아래 **키 넣기**로 넘어가세요.
+중간에 `PROXY_KEY` 를 물어보므로 거기서 바로 채우면 됩니다.
+쓸 제공자의 키는 배포가 끝난 뒤 아래 **키 넣기**로 넘어가세요.
 
 ### 직접 (나중에 갱신받으려면 이쪽)
 
@@ -34,6 +35,10 @@
 4. **Deployments → 맨 위 배포 → ⋯ → Redeploy**
    환경변수는 다시 배포해야 반영됩니다. 이 단계를 빠뜨리는 경우가 가장 많습니다.
 5. 앱 → 설정 → 모델 에서 제공자와 모델명 지정
+
+기기 간 동기화를 쓰려면 **Vercel → Storage → Create → Blob** 을 만들어 프로젝트에 연결합니다.
+`BLOB_READ_WRITE_TOKEN` 은 Vercel이 알아서 꽂아주므로 손으로 적을 필요가 없습니다.
+만들지 않으면 동기화만 꺼지고 나머지 기능은 그대로 씁니다.
 
 자세한 설정과 오류 대처는 **설명서**를 참고하세요.
 
