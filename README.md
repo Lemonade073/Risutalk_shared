@@ -74,22 +74,6 @@
 GemTi 연동에는 GemTi 플러그인과 같은 OAuth 클라이언트 값이 코드에 들어 있습니다.
 공개된 값이며, 사용자 개인 키가 아닙니다.
 
-### GemTi 최신 모델
-
-Vercel 환경변수에 `AGY_REFRESH_TOKEN`을 넣은 뒤 앱의 제공자를 **프록시 · 서버 키**로 선택하고,
-모델 칸에 아래 중 하나를 입력합니다.
-
-- `gemti/gemini-3.7-flash`
-- `gemti/gemini-3.6-flash`
-- `gemti/gemini-3.5-flash-lite`
-
-목록에 없는 새 모델도 이름만 적으면 대체로 그대로 돕니다.
-등급이 어긋나 오류가 나면 `gemti/gemini-3.7-flash-low` 처럼
-등급을 직접 붙여 쓸 수 있습니다.
-
-GemTi 경로만 사용할 때는 Vertex 관련 값을 설정할 필요가 없습니다.
-Antigravity의 계정별 모델 롤아웃 상태에 따라 아직 열리지 않은 모델은 서버 오류가 날 수 있습니다.
-
 ### Vertex AI
 
 구글 클라우드 서비스 계정 JSON을 받아 `VERTEX_PROJECT_ID`, `VERTEX_CLIENT_EMAIL`,
@@ -107,4 +91,3 @@ Antigravity의 계정별 모델 롤아웃 상태에 따라 아직 열리지 않�
 코드 개조·오용, 또는 포크·재배포본의 변경으로 인한 키 노출·요금·데이터 손실에
 대해 제작자는 책임지지 않습니다. 키 설정·보관·사용 및 요금은 사용자 책임입니다.
 
-GemTi 연동부는 GemTi 플러그인 로직을 옮겨 웹앱 환경에 맞게 고쳤습니다.
