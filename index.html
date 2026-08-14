@@ -2292,6 +2292,13 @@ async function* streamLLM(system, msgs, signal, prof){
     model: p.model || base.model,
     temp:  p.temp  ?? base.temp,
   };
+  /* 제공자 드롭다운을 한 번도 건드리지 않으면 onchange 가 안 터져서
+     주소가 빈 채로 남는다. 주소가 고정인 제공자면 여기서 채워 준다.
+     주소를 직접 넣는 제공자(openai·custom 등)는 그대로 오류를 낸다. */
+  if (!a.url){
+    const pv = PROVIDERS[base.provider];
+    if (pv && !pv.urlEditable) a.url = pv.url;
+  }
   const M = a.model;
   if (!a.url || !M) throw new Error('설정에서 주소와 모델을 채우세요.');
 
